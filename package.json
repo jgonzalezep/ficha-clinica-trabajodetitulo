@@ -1,0 +1,68 @@
+{
+  "name": "react-multistep",
+  "version": "5.0.10",
+  "description": "Responsive ReactJS multistep form component",
+  "main": "index.umd.js",
+  "module": "index.esm.js",
+  "license": "MIT",
+  "author": {
+    "name": "@djidja8",
+    "email": "srdjan@timok.com",
+    "url": "https://github.com/srdjan"
+  },
+  "keywords": [
+    "react, reactjs, responsive, component"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srdjan/react-multistep"
+  },
+  "homepage": "https://github.com/srdjan/react-multistep",
+  "bugs": {
+    "url": "https://github.com/srdjan/react-multistep/issues"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@react-md/app-bar": "^2.1.0",
+    "@react-md/button": "^2.1.0",
+    "@react-md/divider": "^2.1.0",
+    "@react-md/icon": "^2.1.0",
+    "@react-md/theme": "^2.1.0",
+    "@react-md/typography": "^2.1.0",
+    "awesome-notifications": "^3.1.1",
+    "bootstrap": "^4.5.0",
+    "browserfs": "^1.4.3",
+    "browserify-fs": "^1.0.0",
+    "carbone": "^2.0.0",
+    "fs": "0.0.1-security",
+    "goober": "2.0.0",
+    "notification-service-js": "^0.6.1",
+    "react-bootstrap": "^1.2.2",
+    "react-divider": "^1.0.0",
+    "react-dom": "^16.13.1",
+    "react-header": "0.0.4",
+    "react-native-elements": "^2.0.4",
+    "react-notifications": "^1.6.0",
+    "react-simple-tooltip": "^2.6.1",
+    "react-sticky-header": "^0.2.0",
+    "react-tooltip-lite": "^1.12.0",
+    "reactstrap": "^8.5.1",
+    "write-file": "^1.0.0",
+    "write-file-p": "^1.0.7",
+    "write-json-file": "^4.3.0"
+  },
+  "devDependencies": {
+    "csstype": "2.6.10",
+    "esbuild": "0.5.11",
+    "react": "^16.13.1"
+  },
+  "peerDependencies": {
+    "react": "16.13.1"
+  },
+  "scripts": {
+    "build": "esbuild react-multistep.js '--define:process.env.NODE_ENV=\"development\"' --external:'react' --bundle --format=cjs --loader:.js=jsx --outfile=index.js",
+    "build:prod": "esbuild react-multistep.js '--define:process.env.NODE_ENV=\"production\"' --external:'react' --bundle --minify --format=cjs --loader:.js=jsx --outfile=index.js",
+    "pub:dry": "npm publish ./ --dry-run",
+    "pub": "npm publish ./"
+  }
+}
