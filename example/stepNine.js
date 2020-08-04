@@ -7,20 +7,58 @@ const downloadjs = require("downloadjs")
 
 export default () => {
 
-  let body = []
-  const download = () => {
+  let body = {
+    0:{},
+    1:{},
+    2:{},
+    3:{},
+    4:{},
+    5:{},
+    6:{},
+    7:{}
+  };
 
-    for(let i; i<8; i++){
-      fs.readFile('data',i.toString(),'.txt', function(err, data) {
-        if(data){
-            body.push(JSON.parse(data))
-          }
-      });
+  var data = [
+    {
+      movieName : 'Matrix',
+      actors    : [{
+        firstname : 'Keanu',
+        lastname  : 'Reeves'
+      },{
+        firstname : 'Laurence',
+        lastname  : 'Fishburne'
+      },{
+        firstname : 'Carrie-Anne',
+        lastname  : 'Moss'
+      }]
+    },
+    {
+      movieName : 'Back To The Future',
+      actors    : [{
+        firstname : 'Michael',
+        lastname  : 'J. Fox'
+      },{
+        firstname : 'Christopher',
+        lastname  : 'Lloyd'
+      }]
     }
+  ];
+
+  const download = () => {
+    const numbers = [0, 1, 2, 3, 4, 5, 6, 7];
+    numbers.map((n) => {
+      if( localStorage.getItem('data'+(n+1).toString()) ){
+        console.log(JSON.parse(localStorage.getItem('data'+(n+1).toString())))
+        body[n] = JSON.parse(localStorage.getItem('data'+(n+1).toString()))
+      }
+    })
+   console.log(body['1'])
     axios.post('http://localhost:5678/file', body)
     .then(function (response) {
       console.log(response);
-      window.open('http://localhost:5678/file', "_blank");
+      if(response){
+        window.open('http://localhost:5678/file', "_blank");
+      }
     })
     .catch(function (error) {
       console.log(error);

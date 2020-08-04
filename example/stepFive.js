@@ -11,17 +11,16 @@ export default () => {
   }
 
   const save2file = () => {
-    fs.writeFile('data5.txt', JSON.stringify(data), function(err, result) {
-        fs.readFile('data5.txt', function(err, data) {
-            if(data){
-              NotificationManager.success('Exitosamente', 'Guardado');
-            }
-            else{
-              NotificationManager.error('Error', 'No se pudo guardar!');
-            }
-        });
-    });
-}
+    let i = 5;
+    localStorage.setItem('data'+i.toString(), JSON.stringify(data))
+    if( localStorage.getItem('data'+i.toString()) ){
+      console.log(JSON.parse(localStorage.getItem('data'+i.toString())))
+      NotificationManager.success('Exitosamente', 'Guardado');
+    }
+    else{
+      NotificationManager.error('Error', 'No se pudo guardar!');
+    }
+  }
 
 return (
     <div>
