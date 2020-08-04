@@ -11,6 +11,7 @@ import './css/normilize.css'
 import './css/skeleton.css'
 import 'react-notifications/lib/notifications.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+require('typeface-roboto')
 
 import StepOne from './stepOne'
 import StepTwo from './stepTwo'

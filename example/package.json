@@ -13,7 +13,8 @@
     "axios": "^0.19.2",
     "downloadjs": "^1.4.7",
     "react-dom": "16.13.1",
-    "react-multistep": "file:.."
+    "react-multistep": "file:..",
+    "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
     "parcel": "1.12.4"
