@@ -3,6 +3,7 @@ var router = express.Router();
 
 const fs = require('fs');
 const carbone = require('carbone');
+const libre = require('libreoffice-convert');
 
   
 // Data to inject
@@ -16,18 +17,18 @@ var data = {
   // Of course, you can create your own templates
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/file', function(req, res, next) {
+  res.download('./files/ficha_clinica.pdf');
 });
 
 router.post('/file', function(req, res, next) {
   console.log(req.body)
-  carbone.render('./node_modules/carbone/examples/simple.odt', data,function(err, result){
+  carbone.render('./files/template.odt', data,{ convertTo : 'pdf' },function(err, result){
     if (err) {
       return console.log(err);
     }
     fs.writeFileSync('./files/ficha_clinica.pdf', result);
-    return '../api/files/ficha_clinica.pdf';
+    return res.download('./files/ficha_clinica.pdf');
   });
 });
 

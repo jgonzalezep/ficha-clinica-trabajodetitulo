@@ -36,6 +36,7 @@
     "carbone": "^2.0.0",
     "fs": "0.0.1-security",
     "goober": "2.0.0",
+    "libreoffice-convert": "^1.1.1",
     "notification-service-js": "^0.6.1",
     "react-bootstrap": "^1.2.2",
     "react-divider": "^1.0.0",

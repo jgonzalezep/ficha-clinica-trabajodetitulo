@@ -5,7 +5,6 @@ const fs = require('browserify-fs');
 import axios from "axios";
 const downloadjs = require("downloadjs")
 
-
 export default () => {
 
   let body = []
@@ -21,8 +20,7 @@ export default () => {
     axios.post('http://localhost:5678/file', body)
     .then(function (response) {
       console.log(response);
-      downloadjs(response);
-
+      window.open('http://localhost:5678/file', "_blank");
     })
     .catch(function (error) {
       console.log(error);
